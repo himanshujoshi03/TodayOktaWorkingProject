@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Website Login</title>
+    <link rel="stylesheet" href="style_login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Welcome Back!</h2>
+        <p>Log in to continue your journey</p>
+        <form>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <a href="https://dev-93076686.okta.com/oauth2/default/v1/authorize?client_id=0oanvofz0rMrDxQQV5d7&redirect_uri=http://127.0.0.1:5000/authorization-code/callback&response_type=code&response_mode=query&state=1234&nonce=1234&scope=openid+profile+email+address+offline_access">Login</a>
+            <div class="options">
+                <a href="signup.html">Sign Up</a>
+                <a href="/forgot-password">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

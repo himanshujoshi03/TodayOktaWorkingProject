@@ -1,0 +1,114 @@
+/* Apply full-page background */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('background_login.jpeg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Glassmorphism effect for the login box */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Subtle hover effect */
+.container:hover {
+    transform: scale(1.03);
+}
+
+/* Heading styles */
+h2 {
+    color: #fff;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+p {
+    color: #eee;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: 0.3s;
+}
+
+/* Input focus effect */
+.input-group input:focus {
+    border-color: #ff7e5f;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 126, 95, 0.5);
+}
+
+/* Gradient button for a modern look */
+button {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+    background: linear-gradient(to right, #e76b52, #fc9d74);
+}
+
+/* Links for Signup and Forgot Password */
+.options {
+    margin-top: 15px;
+}
+
+.options a {
+    color: #ffb3a7;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+/* Hover effect for links */
+.options a:h
+over {
+    color: #ff7e5f;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Travel With Us</title>
+    <link rel="stylesheet" href="style_welcome.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        function toggleMenu() {
+            document.getElementById("sidebar").classList.toggle("active");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <h1>Welcome, <span id="login2">Loading..</span>!</h1>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <a href="editprof.html">Edit Profile</a>
+        <a href="subscription.html">Subscription</a>
+    </div>
+
+    <div class="welcome-box">
+        <p><b>Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> <span
+                id="login">Loading...</span></p><br>
+        <p><b>Primary Email:&nbsp;&nbsp;</b> <span id="email">Loading..</span></p><br>
+        <p><b>Mobile:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </b> <span id="mobile">Loading..</span></p><br>
+        <p><b>City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </b> <span id="city">Loading..</span></p><br>
+        <p><b>State:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </b> <span id="state">Loading..</span></p><br>
+        <p><b>Country Code:&nbsp;&nbsp;</b> <span id="countryCode">Loading..</span></p>
+        <P></P>
+        <p></p>
+        <p><b>Subscription:&nbsp;&nbsp;</b> <span id="subscription">Loading..</span></p>
+        <div class="booking-buttons">
+            <a href="https://www.redbus.in/" class="book-btn">Book Bus Ticket</a>
+            <a href="https://www.irctc.co.in/nget/train-search" class="book-btn">Book Train Ticket</a>
+            <a href="https://www.yatra.com/%3Fredirect%3Dno" class="book-btn">Book Flight Ticket</a>
+        </div>
+    </div>
+    <script src="homepageScript.js"></script>
+</body>
+
+</html>

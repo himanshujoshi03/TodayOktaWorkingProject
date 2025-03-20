@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit - Travel With Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('background_signup.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            animation: fadeIn 1s ease-in-out;
+            margin: 50px auto;
+            position: relative;
+        }
+    
+        h2 {
+            color: #ff7e5f;
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+    
+        label {
+            display: block;
+            text-align: left;
+            color: #444;
+            font-size: 1em;
+            font-weight: 500;
+            margin: 10px 0 5px 20%;
+        }
+    
+        input {
+            width: 60%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        input:focus {
+            border-color: #ff7e5f;
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 126, 95, 0.5);
+        }
+    
+        button {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+    
+        button:hover {
+            background: linear-gradient(to right, #e76b52, #fc9d74);
+        }
+    
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2em;
+            background: none;
+            border: none;
+            color: rgb(12, 12, 12);
+            cursor: pointer;
+        }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+    
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2>Edit Your Profile</h2>
+            <button id="close" class="close-btn">×</button>
+            <form id="editForm">
+                <label for="firstName">First Name</label>
+                <span><input type="text" id="firstName" name="firstName" required></span>
+                <label for="lastName">Last Name</label>
+                <span><input type="text" id="lastName" name="lastName" required></span>
+
+                <label for="username">Username</label>
+                <span><input type="text" id="username" name="username" required></span>
+
+                <label for="email">Primary Email</label>
+                <span> <input type="email" id="email" name="email" required></span>
+                <label for="mobile">Mobile Number</label>
+                <span> <input type="number" id="mobile" name="mobile" required></span>
+                <label for="city">City</label>
+                <span> <input type="text" id="city" name="city" required></span>
+                <label for="state">State</label>
+                <span> <input type="text" id="state" name="state" required></span>
+                <label for="country">country Code</label>
+                <span> <input type="text" id="country" name="country" required></span>
+
+
+                <button type="button" onclick="submitForm()">Save</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    if(!localStorage.getItem("userLog")){
+        location.href="/index.html";
+    }
+    const user=JSON.parse(localStorage.getItem("userLog"));
+    console.log(user.id);
+    document.getElementById("firstName").value=user.profile.firstName;
+    document.getElementById("lastName").value=user.profile.lastName;
+    document.getElementById("username").value=user.profile.login;
+    document.getElementById("email").value=user.profile.email;
+    document.getElementById("mobile").value=user.profile.mobilePhone;
+    document.getElementById("city").value=user.profile.city;
+    document.getElementById("state").value=user.profile.state;
+    document.getElementById("country").value=user.profile.countryCode;
+    async function submitForm() {
+        const userData = {
+            firstName: document.getElementById("firstName").value,
+            lastName: document.getElementById("lastName").value,
+            username: document.getElementById("username").value,
+            email: document.getElementById("email").value,
+            mobile: document.getElementById("mobile").value,
+            city: document.getElementById("city").value,
+            state: document.getElementById("state").value,
+            country: document.getElementById("country").value
+        };
+
+        try {
+            const response = await fetch('http://localhost:5000/update-profile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({userData, userid : user.id})
+            });
+
+            const result = await response.json();//converts the response to JSON
+            if (response.ok) {
+                alert("Profile updated successfully!");
+            } else {
+                alert("Error: " + result.message);
+            }
+        } catch (error) {
+            console.error("Error updating profile:", error);
+            alert("Failed to update profile.");
+        }
+    }
+
+    document.getElementById("close").onclick = function () {
+        location.href = "/homepage.html";
+    };
+</script>
+
+</html>
